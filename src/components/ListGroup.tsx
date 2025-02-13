@@ -1,20 +1,21 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment, MouseEvent } from "react";
 
 function ListGroup() {  
-    let items = [
+    const items= [
         'Chas',
         'Shaira',
         'Cyreh',
         'Marian'
     ]
-    items = []
 
+    const handleClick = (event:MouseEvent) => console.log(event)
+    
     return  (
         <Fragment>
             <h1>List</h1>
             {items.length === 0 && <p>No items found</p>}
             <ul className="list-group">
-                {items.map((item) => <li key={item}>{item}</li>)}
+                {items.map((item, index) => <li className="list-group-item" key={item} onClick={handleClick}>{item}</li>)}
             </ul>
         </Fragment>
     );
